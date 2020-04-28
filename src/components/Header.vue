@@ -13,22 +13,22 @@
       <nav id="menu">
         <ul>
           <li>
-            <router-link to="/home">Inicio</router-link>
+            <router-link to="/home" active-class="active">Inicio</router-link>
           </li>
           <li>
-            <router-link to="/blog">Blog</router-link>
+            <router-link to="/blog" active-class="active">Blog</router-link>
           </li>
           <li>
-            <router-link to="/formulario">Formulario</router-link>
+            <router-link to="/formulario" active-class="active">Formulario</router-link>
           </li>
           <li>
-            <router-link
+            <router-link active-class="active"
               :to="{  name: 'pagina', 
                       params: { id: 'soy el valor del parametro' }}"
             >Pagina 1</router-link>
           </li>
           <li>
-            <router-link to="/pagina">Pagina 2</router-link>
+            <router-link to="/pagina" active-class="active">Pagina 2</router-link>
           </li>
         </ul>
       </nav>

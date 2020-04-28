@@ -95,7 +95,8 @@ body {
 }
 
 
-#menu a:hover {
+#menu a:hover,
+#menu .active{
     color: #41b883;
 }
 
