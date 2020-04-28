@@ -5,7 +5,7 @@
       <div id="logo">
         <img src="../assets/logo.png" class="app-logo" alt="Logotipo" />
         <span id="brand">
-          <strong>Curso</strong>Vue
+          <strong>VueApp</strong>
         </span>
       </div>
 

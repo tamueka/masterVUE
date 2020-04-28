@@ -2,7 +2,7 @@
 <template>
   <footer id="footer">
     <div class="center">
-      <p>&copy; Máster en frameworks para JavaScript de victorroblesweb.es</p>
+      <p>🤘 Máster en frameworks para JavaScript de Samuel Ruiz 😎</p> 
     </div>
   </footer>
 </template>
