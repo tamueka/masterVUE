@@ -15,7 +15,7 @@ body {
     width: 100%;
     background: white;
     border-bottom: 1px solid #ccc;
-    border-top: 5px solid #09a330;
+    border-top: 5px solid #41b883;
 }
 
 .center {
@@ -96,7 +96,7 @@ body {
 
 
 #menu a:hover {
-    color: #f13e3e;
+    color: #41b883;
 }
 
 #slider {
@@ -107,14 +107,13 @@ body {
     text-shadow: 0px 0px 5px #444;
 
     /*DEGRADADO CSS*/
-    background: rgba(119, 194, 81, 1);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(119, 194, 81, 1) 0%, rgba(8, 145, 42, 1) 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(119, 194, 81, 1)), color-stop(100%, rgba(8, 145, 42, 1)));
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(119, 194, 81, 1) 0%, rgba(8, 145, 42, 1) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(119, 194, 81, 1) 0%, rgba(8, 145, 42, 1) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(119, 194, 81, 1) 0%, rgba(8, 145, 42, 1) 100%);
-    background: radial-gradient(ellipse at center, rgba(119, 194, 81, 1) 0%, rgba(8, 145, 42, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#77c251', endColorstr='#08912a', GradientType=1);
+    background: rgba(65, 184, 131, 1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(65, 184, 131, 1) 0%, rgba(92, 155, 108) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(65, 184, 131, 1)), color-stop(100%, rgba(92, 155, 108)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(65, 184, 131, 1) 0%, rgba(92, 155, 108) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(65, 184, 131, 1) 0%, rgba(92, 155, 108) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(65, 184, 131, 1) 0%, rgba(92, 155, 108) 100%);
+    background: radial-gradient(ellipse at center, rgba(65, 184, 131, 1) 0%, rgba(92, 155, 108) 100%);
 
 
 }
@@ -194,7 +193,7 @@ body {
 
 .btn {
     display: block;
-    background: black;
+    background: #41b883;
     color: white;
     padding: 15px;
     font-weight: bold;
@@ -208,7 +207,7 @@ body {
 }
 
 .btn-success {
-    background: rgb(23, 150, 19);
+    background: #41b883;
 }
 
 .btn-success:hover {
