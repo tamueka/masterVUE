@@ -95,9 +95,12 @@ body {
 }
 
 
-#menu a:hover,
+#menu a:hover{
+    color: #41b883;
+}
 #menu .active{
     color: #41b883;
+    border-bottom: 3px solid #41b883;
 }
 
 #slider {
