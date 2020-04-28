@@ -1,22 +1,25 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>{{ texto }}</h2>
-  </div>
+  <section id="content">
+    <h2 class="subheader">Últimos artículos</h2>
+    <div class="hello">
+      <h1>{{ msg }}</h1>
+      <h2>{{ texto }}</h2>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
     msg: String
   },
   data() {
     return {
       texto: "Hola mundo desde componente!!"
-    }
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
