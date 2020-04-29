@@ -22,6 +22,9 @@
             <router-link to="/formulario" active-class="active">Formulario</router-link>
           </li>
           <li>
+            <router-link to="/peliculas" active-class="active">Peliculas</router-link>
+          </li>
+          <li>
             <router-link active-class="active"
               :to="{  name: 'pagina', 
                       params: { id: 'soy el valor del parametro' }}"
