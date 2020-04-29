@@ -8,6 +8,7 @@ import Blog from "./components/Blog.vue";
 import Formulario from "./components/Formulario.vue";
 import Pagina from "./components/Pagina.vue";
 import Error404 from "./components/Error404.vue";
+import MiComponente from './components/MiComponente.vue'
 
 
 Vue.config.productionTip = false
@@ -19,6 +20,7 @@ const routes = [
   { path: "/blog", component: Blog },
   { path: "/formulario", component: Formulario },
   { path: "/pagina/:id?", name: "pagina", component: Pagina },
+  { path: "/pagina2/", component: MiComponente },
   { path: "/ultimos-articulos", component: LastArticles },
   { path: "/", component: LastArticles },
   { path: "*", component: Error404 },

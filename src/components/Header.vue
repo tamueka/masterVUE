@@ -28,7 +28,7 @@
             >Pagina 1</router-link>
           </li>
           <li>
-            <router-link to="/pagina" active-class="active">Pagina 2</router-link>
+            <router-link to="/pagina2" active-class="active">Pagina 2</router-link>
           </li>
         </ul>
       </nav>
