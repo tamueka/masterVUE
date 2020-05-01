@@ -1,7 +1,7 @@
 
 <template>
   <div class="general">
-    <Slider></Slider>
+    <Slider texto="BLOG"></Slider>
     <div class="center">
       <section id="content">
         <h2 class="subheader">Blog</h2>

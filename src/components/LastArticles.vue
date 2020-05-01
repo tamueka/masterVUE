@@ -1,7 +1,7 @@
 
 <template>
   <div class="general">
-    <Slider></Slider>
+    <Slider texto="APP VUE ARTICLES" home="true"></Slider>
     <div class="center">
       <section id="content">
         <h2 class="subheader">Últimos artículos</h2>
@@ -20,7 +20,6 @@
 
             <div class="clearfix"></div>
           </article>
-          <!--AÑADIR ARTICULOS VIA JS-->
         </div>
       </section>
       <Sidebar></Sidebar>
