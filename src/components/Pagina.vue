@@ -1,28 +1,42 @@
 <template>
-  <section id="content">
-    <h2 class="subheader">Pagina de pruebas</h2>
-    <h3>{{ id_desde_url }}</h3>
-    <button @click="actualizarNombre()">Actualizar Nombre</button>
-    <button @click="redirigirAlBlog()">Redirigir</button>
-    <h4>{{ nombre }}</h4>
-  </section>
+  <div class="general">
+    <Slider></Slider>
+    <div class="center">
+      <section id="content">
+        <h2 class="subheader">Pagina de pruebas</h2>
+        <h3>{{ id_desde_url }}</h3>
+        <button @click="actualizarNombre()">Actualizar Nombre</button>
+        <button @click="redirigirAlBlog()">Redirigir</button>
+        <h4>{{ nombre }}</h4>
+      </section>
+      <Sidebar></Sidebar>
+      <div class="clearfix"></div>
+    </div>
+  </div>
 </template>
 
 <script>
+import Slider from './Slider.vue';
+import Sidebar from './Siderbar.vue'
+
 export default {
   name: "Pagina",
-  created(){
-    console.log('Componente creado !!');
+  components:{
+    Slider,
+    Sidebar,
+  },
+  created() {
+    console.log("Componente creado !!");
   },
   mounted() {
     this.id_desde_url = this.$route.params.id;
-      console.log('Componente montado !!');
+    console.log("Componente montado !!");
   },
-  updated(){
-      console.log('Componente actualizado !!');
+  updated() {
+    console.log("Componente actualizado !!");
   },
-  destroyed(){
-    console.log('Componente eliminado !!');
+  destroyed() {
+    console.log("Componente eliminado !!");
   },
   data() {
     return {
@@ -36,7 +50,7 @@ export default {
       console.log(this.nombre);
     },
     redirigirAlBlog() {
-      this.$router.push('/blog');
+      this.$router.push("/blog");
     }
   }
 };

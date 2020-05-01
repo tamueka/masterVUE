@@ -28,10 +28,10 @@
             <router-link active-class="active"
               :to="{  name: 'pagina', 
                       params: { id: 'soy el valor del parametro' }}"
-            >Pagina 1</router-link>
+            >Pagina</router-link>
           </li>
           <li>
-            <router-link to="/pagina2" active-class="active">Pagina 2</router-link>
+            <router-link to="/pagina2" active-class="active">Reactividad</router-link>
           </li>
         </ul>
       </nav>

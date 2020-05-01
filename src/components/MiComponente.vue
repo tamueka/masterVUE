@@ -1,6 +1,6 @@
 <template>
   <section id="content">
-    <h2 class="subheader">Últimos artículos</h2>
+    <h2 class="subheader">REACTIVIDAD</h2>
     <div>
       <hr />
       <h1>Este es mi componente</h1>

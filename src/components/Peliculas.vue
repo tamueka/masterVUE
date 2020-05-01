@@ -1,23 +1,31 @@
 
 <template>
-  <section id="content">
-    <h2 class="subheader">Peliculas</h2>
-    <!--Listado peliculas-->
-    <div id="articles">
-      <div v-for="pelicula in peliculas" :key="pelicula.title">
-        <Pelicula :pelicula="pelicula"></Pelicula>
-      </div>
+  <div class="general">
+    <div class="center">
+      <section id="content">
+        <h2 class="subheader">Peliculas</h2>
+        <!--Listado peliculas-->
+        <div id="articles">
+          <div v-for="pelicula in peliculas" :key="pelicula.title">
+            <Pelicula :pelicula="pelicula"></Pelicula>
+          </div>
+        </div>
+      </section>
+      <Sidebar></Sidebar>
+      <div class="clearfix"></div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
 import Pelicula from "./Pelicula";
+import Sidebar from './Siderbar.vue'
 
 export default {
   name: "Peliculas",
   components: {
-    Pelicula
+    Pelicula,
+    Sidebar,
   },
   data() {
     return {
@@ -46,5 +54,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
