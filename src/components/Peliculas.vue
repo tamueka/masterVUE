@@ -5,6 +5,10 @@
       <section id="content">
         <h1 class="subheader">Peliculas</h1>
 
+        <div class="mis-datos" v-if="misDatos">
+          <span v-html="misDatos"></span>
+        </div>
+
         <div class="favorita" v-if="favorita">
           La pelicula marcada es:
           <h2>{{favorita.title}}</h2>
@@ -12,7 +16,7 @@
 
         <!--Listado peliculas-->
         <div id="articles">
-          <div v-for="pelicula in peliculas" :key="pelicula.title">
+          <div v-for="pelicula in peliculasMayuscula" :key="pelicula.title">
             <Pelicula 
               :pelicula="pelicula" 
               @favorita="haLlegadoLaPeliculaFavorita">
@@ -38,6 +42,9 @@ export default {
   },
   data() {
     return {
+      nombre: 'Samuel',
+      apellidos: 'Ruiz',
+      sitioWeb: 'tamueka.com',
       favorita: null,
       peliculas: [
         {
@@ -65,6 +72,19 @@ export default {
       /* console.log(favorita);
       alert('Se ha ejecutado el evento en el padre'); */
       this.favorita = favorita;
+    }
+  },
+  computed: {
+    peliculasMayuscula() {
+      let peliculasMod = this.peliculas;
+      for(var i = 0; i < this.peliculas.length; i++ ){
+          peliculasMod[i].title = peliculasMod[i].title.toUpperCase();
+      }
+      return peliculasMod;
+    },
+    misDatos(){
+      return `${this.nombre} ${this.apellidos} <br/>
+              Sitio web: ${this.sitioWeb}`
     }
   }
 };
