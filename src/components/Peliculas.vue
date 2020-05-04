@@ -3,11 +3,20 @@
   <div class="general">
     <div class="center">
       <section id="content">
-        <h2 class="subheader">Peliculas</h2>
+        <h1 class="subheader">Peliculas</h1>
+
+        <div class="favorita" v-if="favorita">
+          La pelicula marcada es:
+          <h2>{{favorita.title}}</h2>
+        </div>
+
         <!--Listado peliculas-->
         <div id="articles">
           <div v-for="pelicula in peliculas" :key="pelicula.title">
-            <Pelicula :pelicula="pelicula"></Pelicula>
+            <Pelicula 
+              :pelicula="pelicula" 
+              @favorita="haLlegadoLaPeliculaFavorita">
+            </Pelicula>
           </div>
         </div>
       </section>
@@ -29,6 +38,7 @@ export default {
   },
   data() {
     return {
+      favorita: null,
       peliculas: [
         {
           title: "Batman vs Superman",
@@ -49,6 +59,13 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    haLlegadoLaPeliculaFavorita(favorita){
+      /* console.log(favorita);
+      alert('Se ha ejecutado el evento en el padre'); */
+      this.favorita = favorita;
+    }
   }
 };
 </script>
