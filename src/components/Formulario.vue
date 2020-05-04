@@ -7,16 +7,34 @@
           <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" v-model="user.nombre" />
+            <div v-if="submitted && !$v.user.nombre.required">
+              <span class="alert-danger">* Este campo es requerido</span>
+            </div>
+            <div v-if="submitted && !$v.user.nombre.minLength">
+              <span class="alert-danger">* Este campo tiene que tener 2 caracteres minimo</span>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="apellidos">Apellidos</label>
-            <input type="text" name="apellidos" v-model="user.apellidos"/>
+            <input type="text" name="apellidos" v-model="user.apellidos" />
+            <div v-if="submitted && !$v.user.apellidos.required">
+              <span class="alert-danger">* Este campo es requerido</span>
+            </div>
+            <div v-if="submitted && !$v.user.apellidos.minLength">
+              <span class="alert-danger">* Este campo tiene que tener 2 caracteres minimo</span>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="bio">Biografia</label>
             <textarea name="bio" v-model="user.biografia"></textarea>
+            <div v-if="submitted && !$v.user.biografia.required">
+              <span class="alert-danger">* Este campo es requerido</span>
+            </div>
+            <div v-if="submitted && !$v.user.biografia.minLength">
+              <span class="alert-danger">* Este campo tiene que tener 10 caracteres minimo</span>
+            </div>
           </div>
 
           <div class="form-group radibuttons">
@@ -41,6 +59,8 @@
 </template>
 
 <script>
+import { required, minLength } from "vuelidate/lib/validators";
+
 import Sidebar from "./Siderbar.vue";
 
 export default {
@@ -48,19 +68,43 @@ export default {
   components: {
     Sidebar
   },
-  data(){
-    return {
-      user:{
-        nombre: '',
-        apellidos: '',
-        biografia: '',
-        genero: ''
+  validations: {
+    user: {
+      nombre: {
+        required,
+        minLength: minLength(2)
+      },
+      apellidos: {
+        required,
+        minLength: minLength(2)
+      },
+      biografia: {
+        required,
+        minLength: minLength(10)
       }
     }
   },
+  data() {
+    return {
+      submitted: false,
+      user: {
+        nombre: "",
+        apellidos: "",
+        biografia: "",
+        genero: ""
+      }
+    };
+  },
   methods: {
-    mostrarUsuario(){
-      console.log(this.user)
+    mostrarUsuario() {
+      console.log(this.user);
+      this.submitted = true;
+
+      this.$v.$touch();
+      if (this.$v.$invalid){
+        return false;
+      }
+      alert("Validacion pasada");
     }
   }
 };
