@@ -26,17 +26,12 @@
       <pre>
         {{ $data }}
       </pre>
-      <hr>
+      <hr />
 
       <h2>Directiva iterativa (V-FOR)</h2>
       <ol>
-        <li v-for="pelicula in peliculas" :key="pelicula">
-          {{ pelicula }}
-        </li>
+        <li v-for="pelicula in peliculas" :key="pelicula">{{ pelicula }}</li>
       </ol>
-
-
-
     </div>
   </section>
 </template>
@@ -49,7 +44,7 @@ export default {
       subtitulo: "Soy el subtitulo de mi componente",
       nombre: "",
       edad: 0,
-      peliculas: ['Batman vs Superman', 'El señor de los anillos', 'Spiderman' ]
+      peliculas: ["Batman vs Superman", "El señor de los anillos", "Spiderman"]
     };
   }
 };

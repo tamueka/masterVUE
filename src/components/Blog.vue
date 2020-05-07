@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Slider from "./Slider.vue";
 import Sidebar from "./Siderbar.vue";
 
@@ -21,6 +22,25 @@ export default {
   components: {
     Sidebar,
     Slider
+  },
+  data(){
+    return{
+      articles: []
+    }
+  },
+  mounted(){
+    this.getArticles();
+  },
+  methods: {
+    getArticles(){
+      axios.get('http://localhost:3900/api/articles/')
+            .then(res =>{
+              if(res.data.status == 'success'){
+                this.articles = res.data.articles;
+                console.log(this.articles);
+              }
+            })
+    }
   }
 };
 </script>
