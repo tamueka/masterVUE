@@ -6,25 +6,7 @@
       <section id="content">
         <h1 class="subheader">Blog</h1>
         <div id="articles" v-if="articles">
-          <article class="article-item" v-for="article in articles" :key="article._id">
-            <div class="image-wrap">
-              <img
-                v-if="article.image"
-                :src="url+'get-image/'+article.image"
-                :alt="article.title"
-              />
-              <img
-                v-if="!article.image"
-                src="../assets/images/default.jpg"
-                :alt="article.title"
-              />
-            </div>
-            <h2>{{ article.title }}</h2>
-            <span class="date">{{ article.date }}</span>
-            <a href="#">Leer más</a>
-
-            <div class="clearfix"></div>
-          </article>
+        <Articles :articles="articles"></Articles>
         </div>
       </section>
       <Sidebar></Sidebar>
@@ -38,12 +20,14 @@ import Global from '../Global.js';
 import axios from "axios";
 import Slider from "./Slider.vue";
 import Sidebar from "./Siderbar.vue";
+import Articles from './Articles.vue';
 
 export default {
   name: "Blog",
   components: {
     Sidebar,
-    Slider
+    Slider,
+    Articles
   },
   data() {
     return {
