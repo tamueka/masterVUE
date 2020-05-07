@@ -4,7 +4,28 @@
     <Slider texto="BLOG"></Slider>
     <div class="center">
       <section id="content">
-        <h2 class="subheader">Blog</h2>
+        <h1 class="subheader">Blog</h1>
+        <div id="articles" v-if="articles">
+          <article class="article-item" v-for="article in articles" :key="article._id">
+            <div class="image-wrap">
+              <img
+                v-if="article.image"
+                :src="`http://localhost:3900/api/get-image/${article.image}`"
+                :alt="article.title"
+              />
+              <img
+                v-if="!article.image"
+                src="../assets/images/default.jpg"
+                :alt="article.title"
+              />
+            </div>
+            <h2>{{ article.title }}</h2>
+            <span class="date">{{ article.date }}</span>
+            <a href="#">Leer más</a>
+
+            <div class="clearfix"></div>
+          </article>
+        </div>
       </section>
       <Sidebar></Sidebar>
       <div class="clearfix"></div>
@@ -23,23 +44,22 @@ export default {
     Sidebar,
     Slider
   },
-  data(){
-    return{
+  data() {
+    return {
       articles: []
-    }
+    };
   },
-  mounted(){
+  mounted() {
     this.getArticles();
   },
   methods: {
-    getArticles(){
-      axios.get('http://localhost:3900/api/articles/')
-            .then(res =>{
-              if(res.data.status == 'success'){
-                this.articles = res.data.articles;
-                console.log(this.articles);
-              }
-            })
+    getArticles() {
+      axios.get("http://localhost:3900/api/articles/").then(res => {
+        if (res.data.status == "success") {
+          this.articles = res.data.articles;
+          //console.log(this.articles);
+        }
+      });
     }
   }
 };
