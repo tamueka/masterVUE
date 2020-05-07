@@ -10,7 +10,7 @@
             <div class="image-wrap">
               <img
                 v-if="article.image"
-                :src="`http://localhost:3900/api/get-image/${article.image}`"
+                :src="url+'get-image/'+article.image"
                 :alt="article.title"
               />
               <img
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import Global from '../Global.js';
 import axios from "axios";
 import Slider from "./Slider.vue";
 import Sidebar from "./Siderbar.vue";
@@ -46,6 +47,7 @@ export default {
   },
   data() {
     return {
+      url: Global.url,
       articles: []
     };
   },
@@ -54,7 +56,7 @@ export default {
   },
   methods: {
     getArticles() {
-      axios.get("http://localhost:3900/api/articles/").then(res => {
+      axios.get(this.url+"articles").then(res => {
         if (res.data.status == "success") {
           this.articles = res.data.articles;
           //console.log(this.articles);
