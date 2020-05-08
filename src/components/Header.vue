@@ -30,9 +30,6 @@
                       params: { id: 'soy el valor del parametro' }}"
             >Pagina</router-link>
           </li>
-          <li>
-            <router-link to="/pagina2" active-class="active">Reactividad</router-link>
-          </li>
         </ul>
       </nav>
 
