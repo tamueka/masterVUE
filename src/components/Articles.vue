@@ -7,7 +7,7 @@
           <img v-if="!article.image" src="../assets/images/default.jpg" :alt="article.title" />
         </div>
         <h2>{{ article.title }}</h2>
-        <span class="date">{{ article.date }}</span>
+        <span class="date">{{ article.date | moment("from") }}</span>
         <a href="#">Leer más</a>
 
         <div class="clearfix"></div>

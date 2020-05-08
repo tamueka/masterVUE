@@ -7,6 +7,10 @@ import Vuelidate from 'vuelidate'
 import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/js/all.js";
 
+//VUE MOMENT - MOMENT ESPAÑOL
+import moment from 'moment';
+import 'moment/locale/es';
+
 /* RUTAS */
 import LastArticles from './components/LastArticles.vue'
 import Blog from "./components/Blog.vue";
@@ -20,6 +24,8 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter);
 Vue.use(Vuelidate);
+Vue.use(require("vue-moment"), {moment});
+
 
 const routes = [
   { path: "/home", component: LastArticles },
