@@ -34,7 +34,7 @@
 
 <script>
 import Pelicula from "./Pelicula";
-import Sidebar from './Siderbar.vue'
+import Sidebar from './Sidebar.vue'
 
 export default {
   name: "Peliculas",

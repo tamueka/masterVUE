@@ -21,6 +21,7 @@ import MiComponente from './components/MiComponente.vue';
 import Peliculas from "./components/Peliculas.vue";
 import Search from "./components/Search.vue";
 import Redirect from "./components/Redirect.vue";
+import Article from "./components/Article.vue";
 
 Vue.config.productionTip = false
 
@@ -32,6 +33,7 @@ Vue.use(require("vue-moment"), {moment});
 const routes = [
   { path: "/home", component: LastArticles },
   { path: "/blog", component: Blog },
+  { path: "/articulo/:id", name:"article", component: Article },
   { path: "/formulario", component: Formulario },
   { path: "/pagina/:id?", name: "pagina", component: Pagina },
   { path: "/pagina2/", component: MiComponente },

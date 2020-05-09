@@ -95,10 +95,11 @@ body {
 }
 
 
-#menu a:hover{
+#menu a:hover {
     color: #41b883;
 }
-#menu .active{
+
+#menu .active {
     color: #41b883;
     border-bottom: 3px solid #41b883;
 }
@@ -290,7 +291,6 @@ textarea {
     overflow: hidden;
     float: left;
     margin-right: 15px;
-    border: 1px solid #ccc;
 }
 
 .article-item .image-wrap img {
@@ -333,12 +333,16 @@ textarea {
 .article-detail .image-wrap {
     float: none;
     width: 100%;
-    height: 300px;
+    height: auto;
 }
 
 .article-detail .image-wrap img {
     width: 100%;
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .article-detail .subheader {
@@ -348,7 +352,7 @@ textarea {
 }
 
 .alert-success {
-    color:green;
+    color: green;
     font-weight: bold;
 }
 

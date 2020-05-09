@@ -17,7 +17,7 @@
 
 <script>
 import Slider from './Slider.vue';
-import Sidebar from './Siderbar.vue'
+import Sidebar from './Sidebar.vue'
 
 export default {
   name: "Pagina",

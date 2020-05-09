@@ -20,7 +20,7 @@
 import Global from '../Global.js';
 import axios from "axios";
 import Slider from "./Slider.vue";
-import Sidebar from "./Siderbar.vue";
+import Sidebar from "./Sidebar.vue";
 import Articles from './Articles.vue';
 
 export default {

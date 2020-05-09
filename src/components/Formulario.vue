@@ -61,7 +61,7 @@
 <script>
 import { required, minLength } from "vuelidate/lib/validators";
 
-import Sidebar from "./Siderbar.vue";
+import Sidebar from "./Sidebar.vue";
 
 export default {
   name: "Formulario",
