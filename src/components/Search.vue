@@ -1,7 +1,7 @@
 
 <template>
   <div class="general">
-    <Slider texto="BUSQUEDA"></Slider>
+    <Slider :texto="`Busqueda: ${searchString}`"></Slider>
     <div class="center">
       <section id="content">
         <h1 class="subheader" v-if="articles && articles.length >= 1">Articulos encontrados</h1>
@@ -33,20 +33,21 @@ export default {
     Slider,
     Articles
   },
-  data() {
+  mounted() {
+    this.searchString = this.$route.params.searchString;
+    //console.log(this.searchString);
+    this.getArticlesBySearch(this.searchString);
+  },
+    data() {
     return {
       url: Global.url,
-      articles: []
-    };
-  },
-  mounted() {
-    var searchString = this.$route.params.searchString;
-    //console.log(searchString);
-    this.getArticlesBySearch(searchString);
+      articles: [],
+      searchString: null
+    }
   },
   methods: {
     getArticlesBySearch(searchString) {
-      axios.get(this.url + "search/" + searchString).then(res => {
+      axios.get(this.url+"search/"+searchString).then(res => {
         if (res.data.status == "success") {
           this.articles = res.data.articles;
           //console.log(this.articles);
