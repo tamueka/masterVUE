@@ -279,6 +279,11 @@ main #g6219 {
   animation: an1 12s 0.5s infinite ease-out;
 }
 
+#content {
+  width: 100%;
+  float: none;
+}
+
 @-webkit-keyframes an1 {
   0% {
     -webkit-transform: rotate(0);

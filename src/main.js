@@ -19,6 +19,7 @@ import Pagina from "./components/Pagina.vue";
 import Error404 from "./components/Error404.vue";
 import MiComponente from './components/MiComponente.vue';
 import Peliculas from "./components/Peliculas.vue";
+import Search from "./components/Search.vue";
 
 Vue.config.productionTip = false
 
@@ -35,6 +36,7 @@ const routes = [
   { path: "/pagina2/", component: MiComponente },
   { path: "/ultimos-articulos", component: LastArticles },
   { path: "/peliculas", component: Peliculas },
+  { path: "/buscador/:searchString", component: Search },
   { path: "/", component: LastArticles },
   { path: "*", component: Error404 },
 ];

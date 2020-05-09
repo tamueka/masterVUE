@@ -13,7 +13,7 @@
         <div class="clearfix"></div>
       </article>
     </div>
-    <div v-else-if="articles && articles.length <= 1">
+    <div v-else-if="articles && articles.length <= 0">
       No hay articulos para mostrar
     </div>
     <div v-else><i class="fas fa-3x fa-sync fa-spin"></i></div>
