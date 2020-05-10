@@ -7,12 +7,18 @@
         <form class="mid-form" @submit.prevent="save()">
           <div class="form-group">
             <label for="title">Titulo</label>
-            <input type="text" name="title" v-model="article.title" />
+            <input type="text" name="title" v-model="article.title" required/>
+            <div v-if="submitted && !$v.article.title.required">
+              <span class="alert-danger">* Este campo no puede estar vacio</span>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="content">Contenido</label>
-            <textarea name="content" v-model="article.content"></textarea>
+            <textarea name="content" v-model="article.content" required></textarea>
+            <div v-if="submitted && !$v.article.content.required">
+              <span class="alert-danger">* Este campo no puede estar vacio</span>
+            </div>
           </div>
 
           <div class="form-group">
@@ -36,8 +42,8 @@ import axios from "axios";
 import Global from "../Global";
 import Sidebar from "./Sidebar.vue";
 import Article from "../models/Article";
-/* import { required, minLength } from 'vuelidate/lib/validators';
- */
+import { required } from "vuelidate/lib/validators";
+
 export default {
   name: "CreateArticle",
   components: {
@@ -46,24 +52,42 @@ export default {
   data() {
     return {
       url: Global.url,
-      article: new Article("", "", null, "")
+      article: new Article("", "", null, ""),
+      submitted: false
     };
   },
+  validations: {
+    article: {
+      title: {
+        required
+      },
+      content: {
+        required
+      }
+    }
+  },
   mounted() {
-    console.log(this.article);
+    //console.log(this.article);
   },
   methods: {
     save() {
-      axios.post(this.url + "save", this.article)
-            .then(res => {
-              if(res.data.status == 'success'){
-                this.$router.push('/blog');
-              }
-            })
-            .catch(err => {
-              console.log(err)
-            })
+      this.submitted = true;
 
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        return false;
+      } else {
+        axios
+          .post(this.url + "save", this.article)
+          .then(res => {
+            if (res.data.status == "success") {
+              this.$router.push("/blog");
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
     }
   }
 };
