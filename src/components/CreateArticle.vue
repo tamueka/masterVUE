@@ -7,7 +7,7 @@
         <form class="mid-form" @submit.prevent="save()">
           <div class="form-group">
             <label for="title">Titulo</label>
-            <input type="text" name="title" v-model="article.title"/>
+            <input type="text" name="title" v-model="article.title" />
           </div>
 
           <div class="form-group">
@@ -22,7 +22,7 @@
 
           <div class="clearfix"></div>
 
-          <input type="submit" value="Guardar" class="btn btn-success">
+          <input type="submit" value="Guardar" class="btn btn-success" />
         </form>
       </section>
       <Sidebar></Sidebar>
@@ -32,8 +32,8 @@
 </template>
 
 <script>
-/* import axios from 'axios';
- */ import Global from "../Global";
+import axios from "axios";
+import Global from "../Global";
 import Sidebar from "./Sidebar.vue";
 import Article from "../models/Article";
 /* import { required, minLength } from 'vuelidate/lib/validators';
@@ -53,9 +53,18 @@ export default {
     console.log(this.article);
   },
   methods: {
-      save(){
-        console.log(this.article);  
-      }
+    save() {
+      axios.post(this.url + "save", this.article)
+            .then(res => {
+              if(res.data.status == 'success'){
+                this.$router.push('/blog');
+              }
+            })
+            .catch(err => {
+              console.log(err)
+            })
+
+    }
   }
 };
 </script>
