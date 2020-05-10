@@ -17,6 +17,7 @@
  */import Global from '../Global';
 import Slider from './Slider.vue';
 import Sidebar from './Sidebar.vue';
+import Article from '../models/Article';
 /* import { required, minLength } from 'vuelidate/lib/validators';
  */
 export default {
@@ -28,10 +29,11 @@ export default {
   data() {
       return {
           url: Global.url,
+          article: new Article('', '', null, '')
       }
   },
-  methods: {
-
+  mounted() {
+      console.log(this.article)
   }
 
 };
