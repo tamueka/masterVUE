@@ -1,35 +1,5 @@
 
-<template>
-  <div class="general">
-    <div class="center">
-      <section id="content">
-        <h1 class="subheader">Peliculas</h1>
-
-        <div class="mis-datos" v-if="misDatos">
-          <span v-html="misDatos"></span>
-          <br>
-          {{ sitioWeb | mayusculas | concatenaYear('Buen año') }}
-        </div>
-
-        <div class="favorita" v-if="favorita">
-          La pelicula marcada es:
-          <h2>{{favorita.title}}</h2>
-        </div>
-
-        <!--Listado peliculas-->
-        <div id="articles">
-          <div v-for="pelicula in peliculasMayuscula" :key="pelicula.title">
-            <Pelicula 
-              :pelicula="pelicula" 
-              @favorita="haLlegadoLaPeliculaFavorita">
-            </Pelicula>
-          </div>
-        </div>
-      </section>
-      <Sidebar></Sidebar>
-      <div class="clearfix"></div>
-    </div>
-  </div>
+<template src="./Peliculas.html">
 </template>
 
 <script>

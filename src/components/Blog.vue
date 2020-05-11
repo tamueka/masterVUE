@@ -1,18 +1,5 @@
 
-<template>
-  <div class="general">
-    <Slider texto="BLOG"></Slider>
-    <div class="center">
-      <section id="content">
-        <h1 class="subheader">Blog</h1>
-        <div id="articles" v-if="articles">
-        <Articles :articles="articles"></Articles>
-        </div>
-      </section>
-      <Sidebar></Sidebar>
-      <div class="clearfix"></div>
-    </div>
-  </div>
+<template src="./Blog.html">
 </template>
 
 <script>

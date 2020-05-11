@@ -1,40 +1,5 @@
-<template>
-  <div class="general">
-    <div class="center">
-      <section id="content">
-        <h1 class="subheader">Crear articulo</h1>
-        <!-- Formulario -->
-        <form class="mid-form" @submit.prevent="save()">
-          <div class="form-group">
-            <label for="title">Titulo</label>
-            <input type="text" name="title" v-model="article.title" required />
-            <div v-if="submitted && !$v.article.title.required">
-              <span class="alert-danger">* Este campo no puede estar vacio</span>
-            </div>
-          </div>
+<template src="./CreateArticle.html">
 
-          <div class="form-group">
-            <label for="content">Contenido</label>
-            <textarea name="content" v-model="article.content" required></textarea>
-            <div v-if="submitted && !$v.article.content.required">
-              <span class="alert-danger">* Este campo no puede estar vacio</span>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="image">Image</label>
-            <input type="file" id="file" ref="file" name="file0" @change="fileChange()" />
-          </div>
-
-          <div class="clearfix"></div>
-
-          <input type="submit" value="Guardar" class="btn btn-success" />
-        </form>
-      </section>
-      <Sidebar></Sidebar>
-      <div class="clearfix"></div>
-    </div>
-  </div>
 </template>
 
 <script>

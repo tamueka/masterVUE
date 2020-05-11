@@ -1,0 +1,17 @@
+<div class="general">
+    <Slider :texto="`Busqueda: ${searchString}`"></Slider>
+    <div class="center">
+        <section id="content">
+            <h1 class="subheader" v-if="articles && articles.length >= 1">Articulos encontrados</h1>
+            <h1 class="subheader" v-else>Sin resultados</h1>
+            <div id="articles" v-if="articles">
+                <Articles :articles="articles"></Articles>
+            </div>
+            <div v-else>
+                <h2>No hay articulos que coincidan con tu busqueda</h2>
+            </div>
+        </section>
+        <Sidebar></Sidebar>
+        <div class="clearfix"></div>
+    </div>
+</div>

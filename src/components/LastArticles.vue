@@ -1,19 +1,5 @@
 
-<template>
-  <div class="general">
-    <Slider texto="APP VUE ARTICLES" home="true"></Slider>
-    <div class="center">
-      <section id="content">
-        <h2 class="subheader">Últimos artículos</h2>
-        <!--Listado articulos-->
-        <div id="articles">
-          <Articles :articles="articles"></Articles>  
-        </div>
-      </section>
-      <Sidebar></Sidebar>
-      <div class="clearfix"></div>
-    </div>
-  </div>
+<template src="./LastArticles.html">
 </template>
 
 <script>

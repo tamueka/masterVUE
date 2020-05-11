@@ -1,11 +1,4 @@
-<template>
-  <section id="content">
-    <h2 class="subheader">Últimos artículos</h2>
-    <div class="hello">
-      <h1>{{ msg }}</h1>
-      <h2>{{ texto }}</h2>
-    </div>
-  </section>
+<template src="./HelloWorld.html">
 </template>
 
 <script>
