@@ -51,13 +51,13 @@ export default {
     },
     save() {
       this.submitted = true;
-
+      var articleId = this.$route.params.id;
       this.$v.$touch();
       if (this.$v.$invalid) {
         return false;
       } else {
         axios
-          .post(this.url + "save", this.article)
+          .put(this.url + "article/" + articleId, this.article)
           .then(response => {
             if (response.data.status == "success") {
               /* Subida de archivo */
@@ -77,17 +77,17 @@ export default {
                     //console.log(response);
                     if (response.data.article) {
                       swal(
-                        "Articulo creado",
-                        "El articulo se ha creado correctamente",
+                        "Articulo editado",
+                        "El articulo se ha editado correctamente",
                         "success"
                       );
                       this.article = response.data.article;
                       /* Redireccionamos al blog */
-                      this.$router.push("/blog");
+                      this.$router.push("/articulo/"+this.article._id);
                     } else {
                       swal(
-                        "Articulo no creado",
-                        "El articulo se ha creado correctamente",
+                        "Articulo no se ha editado",
+                        "El articulo no se ha editado correctamente",
                         "error"
                       );
                     }
@@ -97,13 +97,13 @@ export default {
                   });
               } else {
                 swal(
-                  "Articulo creado",
-                  "El articulo se ha creado correctamente",
+                  "Articulo editado",
+                  "El articulo se ha editado correctamente",
                   "success"
                 );
                 this.article = response.data.article;
                 /* Redireccionamos al blog */
-                this.$router.push("/blog");
+                this.$router.push("/articulo/"+this.article._id);
               }
             }
           })
