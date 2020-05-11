@@ -42,13 +42,13 @@ export default {
       this.file = this.$refs.file.files[0];
       console.log(this.file);
     },
-      getArticle(articleId) {
-        axios.get(this.url + "article/" + articleId).then(res => {
-          if (res.data.status == "success") {
-            this.article = res.data.article;
-          }
-        });
-      },
+    getArticle(articleId) {
+      axios.get(this.url + "article/" + articleId).then(res => {
+        if (res.data.status == "success") {
+          this.article = res.data.article;
+        }
+      });
+    },
     save() {
       this.submitted = true;
 

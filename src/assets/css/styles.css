@@ -211,14 +211,14 @@ body {
     cursor: pointer;
 }
 
-.btn-success {
+.-success {
     background: #41b883;
     color: white !important;
     text-align: center;
 }
 
 .btn-warning {
-    background: rgb(27, 26, 23);
+    background: orange;
     color: white !important;
     text-align: center;
 }
