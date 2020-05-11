@@ -23,18 +23,18 @@ export default {
           title: "Batman vs Superman",
           year: 2017,
           image:
-            "https://pics.filmaffinity.com/batman_v_superman_dawn_of_justice-728293826-large.jpg"
+            "https://images-na.ssl-images-amazon.com/images/I/911RR0tzL2L._SY445_.jpg"
         },
         {
           title: "Gran Torino",
           year: 2015,
-          image: "https://pics.filmaffinity.com/gran_torino-278262332-large.jpg"
+          image: "https://images-na.ssl-images-amazon.com/images/I/81TlD6oh2BL._SY445_.jpg"
         },
         {
           title: "El señor de los anillos",
           year: 2009,
           image:
-            "https://pics.filmaffinity.com/the_lord_of_the_rings_the_fellowship_of_the_ring-952398002-large.jpg"
+            "https://images-na.ssl-images-amazon.com/images/I/8112Bc4LpuL._SX342_.jpg"
         }
       ]
     };
