@@ -7,7 +7,7 @@
         <form class="mid-form" @submit.prevent="save()">
           <div class="form-group">
             <label for="title">Titulo</label>
-            <input type="text" name="title" v-model="article.title" required/>
+            <input type="text" name="title" v-model="article.title" required />
             <div v-if="submitted && !$v.article.title.required">
               <span class="alert-danger">* Este campo no puede estar vacio</span>
             </div>
@@ -23,7 +23,7 @@
 
           <div class="form-group">
             <label for="image">Image</label>
-            <input type="file" name="image" />
+            <input type="file" id="file" ref="file" name="file0" @change="fileChange()" />
           </div>
 
           <div class="clearfix"></div>
@@ -52,6 +52,7 @@ export default {
   data() {
     return {
       url: Global.url,
+      file: "",
       article: new Article("", "", null, ""),
       submitted: false
     };
@@ -70,6 +71,10 @@ export default {
     //console.log(this.article);
   },
   methods: {
+    fileChange() {
+      this.file = this.$refs.file.files[0];
+      console.log(this.file);
+    },
     save() {
       this.submitted = true;
 
@@ -79,14 +84,42 @@ export default {
       } else {
         axios
           .post(this.url + "save", this.article)
-          .then(res => {
-            if (res.data.status == "success") {
-              this.$router.push("/blog");
+          .then(response => {
+            if (response.data.status == "success") {
+              /* Subida de archivo */
+              if (
+                this.file != null &&
+                this.file != undefined &&
+                this.file != ""
+              ) {
+                const formData = new FormData();
+                formData.append("file0", this.file, this.filename);
+                //console.log(formData);
+                var articleId = response.data.article._id;
+
+                axios
+                  .post(this.url + "upload-image/" + articleId, formData)
+                  .then(response => {
+                    console.log(response);
+                    if (response.data.article) {
+                      this.article = response.data.article;
+                      /* Redireccionamos al blog */
+                      this.$router.push("/blog");
+                    } else {
+                      //Mostrar alerta error
+                    }
+                  })
+                  .catch(err => {
+                    console.log(err);
+                  });
+              } else {
+                this.article = response.data.article;
+                /* Redireccionamos al blog */
+                this.$router.push("/blog");
+              }
             }
           })
-          .catch(err => {
-            console.log(err);
-          });
+          .catch(err => console.log(err));
       }
     }
   }
