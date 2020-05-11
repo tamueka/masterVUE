@@ -9,7 +9,7 @@
             <p>{{ article.content }}</p>
             <div class="clearfix"></div>
             <router-link :to="'/editar/'+article._id" class="btn btn-warning">Editar</router-link>
-            <router-link to="/borrar" class="btn btn-danger">Borrar</router-link>
+            <a @click="deleteArticle(article._id)" class="btn btn-danger">Borrar</a>
         </article>
         <Sidebar></Sidebar>
     </section>
