@@ -1,6 +1,4 @@
-<template src="./CreateArticle.html">
-
-</template>
+<template src="./CreateArticle.html"></template>
 
 <script>
 import axios from "axios";
@@ -8,6 +6,7 @@ import Global from "../Global";
 import Sidebar from "./Sidebar.vue";
 import Article from "../models/Article";
 import { required } from "vuelidate/lib/validators";
+import swal from "sweetalert";
 
 export default {
   name: "CreateArticle",
@@ -65,19 +64,33 @@ export default {
                 axios
                   .post(this.url + "upload-image/" + articleId, formData)
                   .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     if (response.data.article) {
+                      swal(
+                        "Articulo creado",
+                        "El articulo se ha creado correctamente",
+                        "success"
+                      );
                       this.article = response.data.article;
                       /* Redireccionamos al blog */
                       this.$router.push("/blog");
                     } else {
-                      //Mostrar alerta error
+                      swal(
+                        "Articulo no creado",
+                        "El articulo se ha creado correctamente",
+                        "error"
+                      );
                     }
                   })
                   .catch(err => {
                     console.log(err);
                   });
               } else {
+                swal(
+                  "Articulo creado",
+                  "El articulo se ha creado correctamente",
+                  "success"
+                );
                 this.article = response.data.article;
                 /* Redireccionamos al blog */
                 this.$router.push("/blog");
