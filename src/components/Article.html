@@ -8,6 +8,8 @@
             <span class="date">{{ article.date | moment("from") }}</span>
             <p>{{ article.content }}</p>
             <div class="clearfix"></div>
+            <router-link :to="'/editar/'+article._id" class="btn btn-warning">Editar</router-link>
+            <router-link to="/borrar" class="btn btn-danger">Borrar</router-link>
         </article>
         <Sidebar></Sidebar>
     </section>
